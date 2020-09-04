@@ -1,21 +1,65 @@
-https://gyazo.com/5fa448c91180ee1fe99a5a53c3596d86
+https://gyazo.com/347a3dbe54e58cc15cd72655ad0b28cf
+ER図はこちらです
 
-データベース設計
+## users_table
+|Column	|Type|	Options|
+|-------|---|-----|
+|nickname|string|null:false|
+|email|string|null:false,unipue:true|
+|password|string|null:false|
+|first_name|string|null:false|
+|family_name|string|null:false|
+|first_name_kana|string|null:false|
+|family_name_kana|string|null:false|
+|birthday|date|null:false|
 
-userモデルを作成
-deviseを使用しログイン・新規登録
-ニックネーム、メールアドレス、パスワード、個人情報（氏名・生年月日）管理
+### Association
+-has_many :items
+-has_many :item_purchases
 
-itemモデル作成（商品）
-userが出品した商品を登録する。（pictweetでいうツイート画面
-商品名、カテゴリー、値段、出品者を管理。
-user_idでそれぞれどのuserが出品したのかを紐付けする。
-売れたら売り切れ表示にしてあげないといけない。
- 
-cash（購入）
-ここでどのuserが出したどの商品が売れたのかを紐付けする必要がある。
-よって、user_id,item_idで関連付けて次へ進む
 
-address（実質購入）
-配送先を入力しカードで支払いを終える。
-この工程はトランザクションで購入（支払い）と配送がセットで１つとしなくてはいけない。
+## items_table
+|Column	|Type|	Options|
+|-------|---|-----|
+|user_id(FK) |integer|foreign_key: true|
+|name|string|null:false|
+|introduction|text|null:false|
+|item_condition_id|integer|null:false|
+|category_id|integer|null:false|
+|price|integer|null:false|
+|postage_payer_id|integer|null:false|
+|shipment_id|integer|null:false|
+|preparation_day_id|integer|null:false|
+
+
+### Association
+-belongs_to :users
+-has_one :item_purchase
+
+
+## item_purchases
+|Column	|Type|	Options|
+|-------|---|-----|
+|user_id(FK)|integer|foreign_key: true|
+|item_id(FK)|integer|foreign_key: true|
+
+### Association
+-belongs_to :user
+-belongs_to :item
+-has_one :address
+
+
+## address_table
+|Column	|Type|	Options|
+|-------|---|-----|
+|item_purchases_id|integer|foreign_key: true|
+|post_code|string|null:false|
+|prefecture_code_id|integer|null:false|
+|city|string|null:false|
+|house_number|string|null:false|
+|building_number|string|
+|phone_number|string|null:false|
+
+
+### Association
+belongs_to :item_purchase

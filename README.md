@@ -1,5 +1,5 @@
-https://gyazo.com/18a9dfa2057036dc02b6a29952ef8efd
-プルリクエストに添付できなかったER図こちらに貼らせていただきます。
+https://gyazo.com/bfec39ee07a4f7ca47ef62a963e3ac4c
+ER図はこちらです
 
 ## users_table
 |Column	|Type|	Options|
@@ -11,9 +11,7 @@ https://gyazo.com/18a9dfa2057036dc02b6a29952ef8efd
 |family_name|string|null:false|
 |first_name_kana|string|null:false|
 |family_name_kana|string|null:false|
-|birth_year|date|null:false|
-|birth_month|date|null:false|
-|birth_day|date|null:false|
+|birthday|date|null:false|
 
 ### Association
 -has_many :items
@@ -25,12 +23,15 @@ https://gyazo.com/18a9dfa2057036dc02b6a29952ef8efd
 |Column	|Type|	Options|
 |-------|---|-----|
 |user_id(FK) |integer|foreign_key: true|
-|item_name|string|null:false|
+|name|string|null:false|
 |introduction|text|null:false|
-|item_condition|references|null:false,foreign_key:true|
-|category|references|null:false,foreign_key:true|
+|item_condition|integer|null:false|
+|category|integer|null:false|
 |price|integer|null:false|
-|item_imgs|string|null:false|
+|postage_payer|integer|null:false|
+|shipment|integer|null:false|
+|preparation_day|integer|null:false|
+
 
 ### Association
 -belongs_to :users
@@ -38,7 +39,7 @@ https://gyazo.com/18a9dfa2057036dc02b6a29952ef8efd
 -has_many :users, through: :check
 
 
-## check_table（中間テーブル）
+## item_purchases
 |Column	|Type|	Options|
 |-------|---|-----|
 |user_id(FK)|integer|foreign_key: true|
@@ -54,16 +55,13 @@ https://gyazo.com/18a9dfa2057036dc02b6a29952ef8efd
 |Column	|Type|	Options|
 |-------|---|-----|
 |check_id|integer|foreign_key: true|
-|post_code|integer(7)|null:false|
+|post_code|string|null:false|
 |prefecture_code|integer|null:false|
 |city|string|null:false|
 |house_number|string|null:false|
-|building_number|string|null:false|
+|building_number|string|
 |phone_number|integer|null:false|
-|card_number|integer|null:false|
-|expiration_year|integer|null:false|
-|expiration_month|integer|null:false|
-|secrity_code|integer|null:false|
+
 
 ### Association
 belongs_to :check

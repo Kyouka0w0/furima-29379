@@ -24,17 +24,17 @@ ER図はこちらです
 |user_id(FK) |integer|foreign_key: true|
 |name|string|null:false|
 |introduction|text|null:false|
-|item_condition|integer|null:false|
-|category|integer|null:false|
+|item_condition_id|integer|null:false|
+|category_id|integer|null:false|
 |price|integer|null:false|
-|postage_payer|integer|null:false|
-|shipment|integer|null:false|
-|preparation_day|integer|null:false|
+|postage_payer_id|integer|null:false|
+|shipment_id|integer|null:false|
+|preparation_day_id|integer|null:false|
 
 
 ### Association
 -belongs_to :users
--has_one :item_purchases
+-has_one :item_purchase
 
 
 ## item_purchases
@@ -54,7 +54,7 @@ ER図はこちらです
 |-------|---|-----|
 |item_purchases_id|integer|foreign_key: true|
 |post_code|string|null:false|
-|prefecture_code|integer|null:false|
+|prefecture_code_id|integer|null:false|
 |city|string|null:false|
 |house_number|string|null:false|
 |building_number|string|
@@ -62,4 +62,4 @@ ER図はこちらです
 
 
 ### Association
-belongs_to :item_purchases
+belongs_to :item_purchase

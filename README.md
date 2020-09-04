@@ -1,3 +1,6 @@
+https://gyazo.com/18a9dfa2057036dc02b6a29952ef8efd
+プルリクエストに添付できなかったER図こちらに貼らせていただきます。
+
 ## users_table
 |Column	|Type|	Options|
 |-------|---|-----|

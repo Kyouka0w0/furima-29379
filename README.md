@@ -1,4 +1,4 @@
-https://gyazo.com/bfec39ee07a4f7ca47ef62a963e3ac4c
+https://gyazo.com/347a3dbe54e58cc15cd72655ad0b28cf
 ER図はこちらです
 
 ## users_table
@@ -15,8 +15,7 @@ ER図はこちらです
 
 ### Association
 -has_many :items
--has_many :check
--has_many :items, through: :check
+-has_many :item_purchases
 
 
 ## items_table
@@ -35,8 +34,7 @@ ER図はこちらです
 
 ### Association
 -belongs_to :users
--has_many :check
--has_many :users, through: :check
+-has_many :item_purchases
 
 
 ## item_purchases
@@ -64,5 +62,4 @@ ER図はこちらです
 
 
 ### Association
-belongs_to :check
-
+belongs_to :item_purchases

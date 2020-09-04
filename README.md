@@ -1,4 +1,3 @@
-
 ## users_table
 |Column	|Type|	Options|
 |-------|---|-----|
@@ -65,3 +64,4 @@
 
 ### Association
 belongs_to :check
+

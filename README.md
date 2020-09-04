@@ -34,7 +34,7 @@ ER図はこちらです
 
 ### Association
 -belongs_to :users
--has_many :item_purchases
+-has_one :item_purchases
 
 
 ## item_purchases
@@ -44,21 +44,21 @@ ER図はこちらです
 |item_id(FK)|integer|foreign_key: true|
 
 ### Association
--belongs_to :users
--belongs_to :items
+-belongs_to :user
+-belongs_to :item
 -has_one :address
 
 
 ## address_table
 |Column	|Type|	Options|
 |-------|---|-----|
-|check_id|integer|foreign_key: true|
+|item_purchases_id|integer|foreign_key: true|
 |post_code|string|null:false|
 |prefecture_code|integer|null:false|
 |city|string|null:false|
 |house_number|string|null:false|
 |building_number|string|
-|phone_number|integer|null:false|
+|phone_number|string|null:false|
 
 
 ### Association

@@ -1,1 +1,2 @@
-設計　https://app.diagrams.net/#G1SO5kjttBhI9IbcsEA8vY4CJPDxpwj-bK
+設計　https://gyazo.com/e4ecece77a120a5f016a097a95812cbf
+プルリクエストは送信済みであるためER図はこちらに貼らせていただきます。

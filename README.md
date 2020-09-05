@@ -63,3 +63,5 @@ ER図はこちらです
 
 ### Association
 belongs_to :item_purchase
+
+以上

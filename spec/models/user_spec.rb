@@ -7,11 +7,13 @@ RSpec.describe User, type: :model do
     end
 
     it "必要な情報、nickname〜bithdayまでがきちんと存在すれば登録できること" do
-
+      expect(@user).to be_valid
     end
 
-    it "nameが空では登録できないこと" do
-
+    it "nicknameが空では登録できないこと" do
+      @user.nickname = nil
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Name can't be blank")
     end
 
     it "emailが空では登録できないこと" do
@@ -24,22 +26,19 @@ RSpec.describe User, type: :model do
     it "passwordが存在してもpassword_confirmationが空では登録できないこと" do
 
     end
-    it "nameが空では登録できないこと" do
+    it "first_nameが空では登録できないこと" do
 
     end
-    it "nameが空では登録できないこと" do
+    it "last_nameが空では登録できないこと" do
 
     end
-    it "nameが空では登録できないこと" do
+    it "first_name_kanaが空では登録できないこと" do
 
     end
-    it "nameが空では登録できないこと" do
+    it "last_name_kanaが空では登録できないこと" do
 
     end
-    it "nameが空では登録できないこと" do
-
-    end
-    it "nameが空では登録できないこと" do
+    it "birthdayが空では登録できないこと" do
 
     end
   end

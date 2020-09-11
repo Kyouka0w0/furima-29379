@@ -3,8 +3,7 @@ class Item < ApplicationRecord
   has_one :item_purchase
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :category
-  belongs_to_active_hash :condition
+  belongs_to_active_hash :category, :condition, :postage, :shipment, :preparation
 
   #空の投稿を保存できないようにする
   #validates :name, :introduction, :category, presence: true

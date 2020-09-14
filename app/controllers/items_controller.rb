@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
   end
 
   def create
@@ -17,6 +18,7 @@ class ItemsController < ApplicationController
      render :new
    end
   end
+
 
   # def destroy
   # @item = Item.find(params[:id])

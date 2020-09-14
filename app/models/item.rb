@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  belongs_to :users
+  belongs_to :user
   has_one :item_purchase
   has_one_attached :image
 
@@ -10,7 +10,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :shipment
   belongs_to_active_hash :preparation
 
-  validates :name, :introduction, :item_condition_id, :category_id,:price, presence: true
-  validates :postage_payer_id, :shipment_id, :preparation_day_id, presence: true
-  validates :category_id, :condition, :postage, :shipment, :preparation, numericality: { other_than: 1 } 
+  validates :name, :introduction,:price, presence: true
+  validates :category_id, :item_condition_id, :postage_payer_id, :shipment_id, :preparation_day_id, numericality: { other_than: 1 } 
 end

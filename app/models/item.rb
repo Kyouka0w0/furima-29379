@@ -11,6 +11,10 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation
 
   validates :name, :introduction, :image, presence: true
-  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }
+  validates :price, presence: true
+  class Player < ApplicationRecord
+  validates :price, numericality: true
+  validates :games_played, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+  end
   validates :category_id, :item_condition_id, :postage_payer_id, :shipment_id, :preparation_day_id, numericality: { other_than: 1 } 
 end

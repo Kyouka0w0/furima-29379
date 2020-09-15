@@ -6,12 +6,12 @@ RSpec.describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
 
-    # 正常系
+    # 正常
     it '必要な情報、nickname〜bithdayまでがきちんと存在すれば登録できること' do
       expect(@user).to be_valid
     end
 
-    # 異常系
+    # 異常
     it 'nicknameが空では登録できないこと' do
       @user.nickname = ''
       @user.valid?

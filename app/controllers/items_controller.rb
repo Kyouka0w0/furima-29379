@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @item = Item.order("created_at DESC")
+    @item = Item.order('created_at DESC')
   end
 
   def new
@@ -11,14 +11,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-   if @item.valid?
-    @item.save!
-     redirect_to root_path
-   else
-     render :new
-   end
+    if @item.valid?
+      @item.save!
+      redirect_to root_path
+    else
+      render :new
+    end
   end
-
 
   # def destroy
   # @item = Item.find(params[:id])
@@ -40,10 +39,8 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :introduction, :item_condition_id, :category_id, :price, :postage_payer_id, :shipment_id, :preparation_day_id, :image).merge(user_id: current_user.id)
   end
-  
+
   def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless user_signed_in?
   end
 end

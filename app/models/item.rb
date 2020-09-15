@@ -12,9 +12,9 @@ class Item < ApplicationRecord
 
   validates :name, :introduction, :image, presence: true
   validates :price, presence: true
-  class Player < ApplicationRecord
-  validates :price, numericality: true
-  validates :games_played, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
-  end
+  
+  validates :price, presence: true, format: { with: /\A[0-9]+\z/ }
+  validates_inclusion_of :price, in: 300..9999999
+
   validates :category_id, :item_condition_id, :postage_payer_id, :shipment_id, :preparation_day_id, numericality: { other_than: 1 } 
 end

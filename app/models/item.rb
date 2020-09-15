@@ -11,7 +11,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :preparation
 
   validates :name, :introduction, :image, presence: true
-  validates :price, presence: true
 
   validates :price, presence: true, format: { with: /\A[0-9]+\z/ }
   validates_inclusion_of :price, in: 300..9_999_999

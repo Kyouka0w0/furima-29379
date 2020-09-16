@@ -118,11 +118,11 @@
     <ul class='item-lists'>
 
     <% if @item.present? %>
-    <% @items.each do |item| %>
+    <% @item.each do |item| %>
       <li class='list'>
       <%= link_to "#" do %>
         <div class='item-img-content'>
-        <%= image_tag "item-sample.png", class: "item-img" %>
+        <%= image_tag item.image, class: "item-img" %>
 
           <%# 商品が売れていればsold outを表示しましょう %>
         <div class='sold-out'>
@@ -173,8 +173,8 @@
 
 <div class='purchase-btn'>
   <span class='purchase-btn-text'>出品する</span>
-  <a href="#">
-    <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
-  </a>
+  
+  <%= link_to image_tag("camera.png", size: '185x50', alt: "出品表示", class: "purchase-btn-icon"),new_item_path %>
+  
 </div>
 <%= render "shared/footer" %>

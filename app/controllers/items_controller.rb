@@ -18,6 +18,10 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+  
+  def show
+    @item = Item.find(params[:id])
+  end
 
   # def destroy
   # @item = Item.find(params[:id])
@@ -29,9 +33,6 @@ class ItemsController < ApplicationController
   # def update
   # item = Item.find(params[:id])
   # item.update(item_params)
-  # end
-  # def show
-  # @item = Item.find(params[:id])
   # end
 
   private

@@ -5,10 +5,10 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
-  belongs_to_active_hash :condition
-  belongs_to_active_hash :postage
+  belongs_to_active_hash :item_condition
+  belongs_to_active_hash :postage_payer
   belongs_to_active_hash :shipment
-  belongs_to_active_hash :preparation
+  belongs_to_active_hash :preparation_day
 
   validates :name, :introduction, :image, presence: true
 

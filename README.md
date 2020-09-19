@@ -15,7 +15,7 @@ ER図はこちらです
 
 ### Association
 -has_many :items
--has_many :item_purchases
+-has_many :order
 
 
 ## items_table
@@ -34,10 +34,10 @@ ER図はこちらです
 
 ### Association
 -belongs_to :users
--has_one :item_purchase
+-has_one :order
 
 
-## item_purchases
+## order
 |Column	|Type|	Options|
 |-------|---|-----|
 |user_id(FK)|integer|foreign_key: true|
@@ -62,6 +62,6 @@ ER図はこちらです
 
 
 ### Association
-belongs_to :item_purchase
+belongs_to :order
 
 以上

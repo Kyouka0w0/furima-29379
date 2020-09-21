@@ -42,6 +42,7 @@ ER図はこちらです
 |-------|---|-----|
 |user_id(FK)|integer|foreign_key: true|
 |item_id(FK)|integer|foreign_key: true|
+|price|integer|
 
 ### Association
 -belongs_to :user
@@ -52,7 +53,7 @@ ER図はこちらです
 ## address_table
 |Column	|Type|	Options|
 |-------|---|-----|
-|item_purchases_id|integer|foreign_key: true|
+|order_id|integer|foreign_key: true|
 |post_code|string|null:false|
 |prefecture_code_id|integer|null:false|
 |city|string|null:false|

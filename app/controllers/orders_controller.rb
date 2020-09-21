@@ -1,17 +1,14 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @item = Item.find(params[:item_id])
-  end
-
-  def new
-    @purchase = Purchase.new
+    @order = Purchase.new
   end
 
   def create
-    @purchase = Purchase.new(order_params)
-    @purchase.save
-    @order = Order.new(price: order_params[:price])
+    @item = Item.find(params[:item_id])
+    @order = Purchase.new(order_params)
     if @order.valid?
       pay_item
       @order.save
@@ -24,13 +21,13 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.reqire(:purchase).permit(:price, :token, :post_code, :prefecture_code_id, :city, :house_number, :building_number, :phone_number, :order_id)
+    params.permit(:token, :post_code, :shipment_id, :city, :house_number, :building_number, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def pay_item
-    Payjp.api_key = "pk_test_69e5c83d059b46439cd162e2"
+    Payjp.api_key = "sk_test_59f7591c17ee52874c7aa27e"
     Payjp::Charge.create(
-      amount: order_params[:price],  # 商品の値段
+      amount: @item.price,  # 商品の値段
       card: order_params[:token],    # カードトークン
       currency:'jpy'                 # 通貨の種類(日本円)
     )

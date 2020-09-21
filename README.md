@@ -42,7 +42,6 @@ ER図はこちらです
 |-------|---|-----|
 |user_id(FK)|integer|foreign_key: true|
 |item_id(FK)|integer|foreign_key: true|
-|price|integer|
 
 ### Association
 -belongs_to :user

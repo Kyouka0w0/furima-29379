@@ -15,6 +15,16 @@ ja:
         category_id: カテゴリー
         item_condition_id: 商品の状態
         postage_payer_id: 配送料の負担
-        shipment_id: 発送元の地域
+        shipment_id: 地域
         preparation_day_id: 発送までの日数
         image: 画像
+  activemodel:
+    attributes:
+      purchase:
+        token: カード情報
+        shipment_id: 地域
+        post_code: 郵便番号
+        city: 市区町村
+        house_number: 番地
+        phone_number: 電話番号
+

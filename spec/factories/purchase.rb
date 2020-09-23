@@ -15,9 +15,7 @@ FactoryBot.define do
     user_id {create(:user).id}
     item_id {create(:item).id}
 
-
     # association :user
     # association :item
-
   end
 end

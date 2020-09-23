@@ -14,7 +14,6 @@ RSpec.describe Purchase, type: :model do
       expect(@purchase).to be_valid
     end
 
-
     it 'tokenが空だと保存できないこと' do
       @purchase.token = ''
       @purchase.valid?
@@ -23,12 +22,12 @@ RSpec.describe Purchase, type: :model do
     it 'post_codeは半角のハイフンを含んだ正しい形式でないと保存できないこと' do
       @purchase.post_code = '0001234'
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include("Post code is invalid")
+      expect(@purchase.errors.full_messages).to include('Post code is invalid')
     end
     it 'post_codeは半角のハイフンを含んだ正しい形式でないと保存できないこと' do
       @purchase.post_code = 'aaa-0000'
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include("Post code is invalid")
+      expect(@purchase.errors.full_messages).to include('Post code is invalid')
     end
     it 'post_codeが空だと保存できないこと' do
       @purchase.post_code = ''
@@ -38,7 +37,7 @@ RSpec.describe Purchase, type: :model do
     it 'shipmentが選択されていないと保存できないこと' do
       @purchase.shipment_id = 1
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include("Shipment must be other than 1")
+      expect(@purchase.errors.full_messages).to include('Shipment must be other than 1')
     end
     it 'cityが空だと保存できないこと' do
       @purchase.city = ''
@@ -48,7 +47,7 @@ RSpec.describe Purchase, type: :model do
     it 'cityは全角でないと保存できないこと' do
       @purchase.city = 'aaa'
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include("City is invalid")
+      expect(@purchase.errors.full_messages).to include('City is invalid')
     end
     it 'house_numberが空だと保存できないこと' do
       @purchase.house_number = ''
@@ -63,8 +62,7 @@ RSpec.describe Purchase, type: :model do
     it 'phone_numberが半角数字11以内でないと保存できないこと' do
       @purchase.phone_number = '0901234456781'
       @purchase.valid?
-      expect(@purchase.errors.full_messages).to include("Phone number is invalid")
+      expect(@purchase.errors.full_messages).to include('Phone number is invalid')
     end
-
   end
 end

@@ -60,7 +60,6 @@ ER図はこちらです
 |building_number|string|
 |phone_number|string|null:false|
 
-
 ### Association
 belongs_to :order
 

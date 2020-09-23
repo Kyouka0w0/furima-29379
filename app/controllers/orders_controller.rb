@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @order = Purchase.new(order_params)
     if @order.valid?
       pay_item
-      @order.save
+      @order.save!
       redirect_to root_path
     else
       render 'index'
@@ -42,7 +42,6 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     if current_user.id == @item.user_id
     redirect_to root_path 
-    else
     end
   end
 
@@ -50,7 +49,6 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     if @item.order.present?
     redirect_to root_path 
-    else
     end
   end
 end

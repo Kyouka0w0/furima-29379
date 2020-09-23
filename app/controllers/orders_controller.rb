@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @order = Purchase.new(order_params)
     if @order.valid?
       pay_item
-      @order.save!
+      @order.save
       redirect_to root_path
     else
       render 'index'

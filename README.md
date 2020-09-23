@@ -15,7 +15,7 @@ ER図はこちらです
 
 ### Association
 -has_many :items
--has_many :item_purchases
+-has_many :order
 
 
 ## items_table
@@ -34,10 +34,10 @@ ER図はこちらです
 
 ### Association
 -belongs_to :users
--has_one :item_purchase
+-has_one :order
 
 
-## item_purchases
+## order
 |Column	|Type|	Options|
 |-------|---|-----|
 |user_id(FK)|integer|foreign_key: true|
@@ -52,9 +52,9 @@ ER図はこちらです
 ## address_table
 |Column	|Type|	Options|
 |-------|---|-----|
-|item_purchases_id|integer|foreign_key: true|
+|order_id|integer|foreign_key: true|
 |post_code|string|null:false|
-|prefecture_code_id|integer|null:false|
+|shipment_id|integer|null:false|
 |city|string|null:false|
 |house_number|string|null:false|
 |building_number|string|
@@ -62,6 +62,6 @@ ER図はこちらです
 
 
 ### Association
-belongs_to :item_purchase
+belongs_to :order
 
 以上

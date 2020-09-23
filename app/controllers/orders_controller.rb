@@ -1,8 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :order_item, only: [:index]
   before_action :set_item, only: [:index, :create]
-  before_action :present_item, only: [:index]
+  before_action :order_item, only: [:index]
 
   def index
     @order = Purchase.new
@@ -39,16 +38,9 @@ class OrdersController < ApplicationController
   end
 
   def order_item
-    @item = Item.find(params[:item_id])
-    if current_user.id == @item.user_id
-    redirect_to root_path 
+    if current_user.id == @item.user_id || @item.order.present?
+      redirect_to root_path 
     end
   end
 
-  def present_item
-    @item = Item.find(params[:item_id])
-    if @item.order.present?
-    redirect_to root_path 
-    end
-  end
 end

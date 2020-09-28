@@ -13,7 +13,6 @@
       <div class="weight-bold-text">
         出品画像
         <span class="indispensable">必須</span>
-        <div id="image-list"></div>
       </div>
       <div class="click-upload">
         <p>
@@ -21,6 +20,9 @@
         </p>
         <%= f.file_field :image, id:"item-image" %>
       </div>
+      
+    </div><div class="preview">
+    <div class="image-list", id="image-list"></div>
     </div>
 
     <div class="new-items">

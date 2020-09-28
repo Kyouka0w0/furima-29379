@@ -6,21 +6,16 @@ if (document.URL.match( /new/ ) || document.URL.match( /edit/ )){
       const imageElement = document.createElement('div');
       const blobImage = document.createElement('img');
 
-      // var targetImg = blobImage
-      // var orgWidth  = targetImg.width;
-      // var orgHeight = targetImg.height;
-      // targetImg.width = 400;
-      // targetImg.height = orgHeight * (targetImg.width / orgWidth);
-
       blobImage.setAttribute('src', blob);
-
+      blobImage.setAttribute('id', 'preview-image');
+      blobImage.setAttribute('height', '200');
       
       imageElement.appendChild(blobImage);
       ImageList.appendChild(imageElement);
     };
 
   document.getElementById('item-image').addEventListener('change', function(e){
-    const imageContent = document.querySelector('img');
+    const imageContent = document.getElementById('preview-image');
       if (imageContent){
         imageContent.remove();
     }

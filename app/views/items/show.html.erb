@@ -7,13 +7,11 @@
     </h2>
     <div class='item-img-content'>
       <%= image_tag @item.image ,class:"item-box-img" %>
-      <%# 商品が売れている場合は、sold outを表示しましょう %>
       <% if @item.order.present? %>
        <div class='sold-out'>
         <span>Sold Out!!</span>
       </div>
       <% end %>
-      <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
     <div class="item-price-box">
       <span class="item-price">
@@ -80,25 +78,19 @@
   </div>
 
   <div class="comment-box">
-      <%= form_with model: [@item, @message], local: true do |form| %>
-      <%= form.text_area :text, placeholder: "コメントする", class:"comment-text" %>
+  <form>
+      <textarea class="comment-text"></textarea>
       <p class="comment-warn">
         相手のことを考え丁寧なコメントを心がけましょう。
         <br>
         不快な言葉遣いなどは利用制限や退会処分となることがあります。
       </p>
-      <button type="submit" form.submit class="comment-btn">
+      <button type="submit" class="comment-btn">
         <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25" %>
         <span>コメントする<span>
       </button>
-    <% end %>
-  <% if @messages %>
-        <div id='messages'>
-          <% @messages.reverse_each do |message| %>
-            <p><%= message.text %></p>
-          <% end %>
-        </div>
-  <% end %>
+  </form>
+  
   </div>
   <div class="links">
     <a href="#" class="change-item-btn">

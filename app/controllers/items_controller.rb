@@ -29,6 +29,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+    @message = Message.new
+    @messages = Message.all
+  end
+
   def destroy
     if @item.destroy
       redirect_to root_path
